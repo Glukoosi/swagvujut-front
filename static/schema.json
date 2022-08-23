@@ -1,0 +1,65 @@
+{
+    "slug":"xwagtest",
+    "heading":"xwagtest",
+    "description":"halojata",
+    "public":false,
+    "capacity":64,
+    "capacityMax":100,
+    "startDate":"2021-09-01T13:37:00.000Z",
+    "endDate":"2022-09-30T23:59:00.000Z",
+    "form":{
+        "name":{
+            "type":"Text",
+            "label":"Nimi",
+            "required":true
+        },
+        "email":{
+            "type":"Email",
+            "label":"Sähköpostiosoite",
+            "required":true
+        },
+        "group":{
+            "type":"Text",
+            "label":"Edustettava taho/joukkue",
+            "required":true
+        },
+        "greeting":{
+            "type":"Radio",
+            "label":"Haluatko tuoda tervehdyksen",
+            "options":[
+                "Kyllä",
+                "En"
+            ],
+            "required":true
+        },
+        "food":{
+            "type":"Text",
+            "label":"Erikoisruokavalio"
+        },
+        "alcohol":{
+            "type":"Radio",
+            "label":"Juomapreferenssi",
+            "options":[
+                "Alkoholillinen",
+                "Alkoholiton"
+            ],
+            "required":true
+        },
+        "bottle":{
+            "type":"CheckBox",
+            "label":"Haluan pullon X"
+        },
+        "tablewish":{
+            "type":"Text",
+            "label":"Avec / Pöytätoive (avec ilmoittautuu erikseen)"
+        },
+        "free":{
+            "type":"TextArea",
+            "label":"Vapaa sana"
+        },
+        "checkbox":{
+            "type":"CheckBox",
+            "label":"Nimeni saa julkaista ilmoittautuneissa"
+        }
+    }
+}
