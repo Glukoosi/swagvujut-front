@@ -6,17 +6,17 @@ const registered = reactive({
     loaded: false,
     names: [],
     getRegistered() {
-        const socket = io("https://api.ilmo.io");
-
-        socket.on("xwagtest", (msg) => {
-            this.names.push(msg)
-        });
-
         axios.get("https://api.ilmo.io/api/registrations/names/xwagtest")
             .then(data => {
                 this.names = data.data.reverse();
 
             })
+
+        const socket = io("https://api.ilmo.io");
+
+        socket.on("xwagtest", (msg) => {
+            this.names.push(msg)
+        });
     }
 })
 
