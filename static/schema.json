@@ -5,8 +5,8 @@
     "public":false,
     "capacity":64,
     "capacityMax":100,
-    "startDate":"2021-09-01T13:37:00.000Z",
-    "endDate":"2022-09-30T23:59:00.000Z",
+    "startDate":"2021-09-01T10:37:00.000Z",
+    "endDate":"2022-09-30T20:59:00.000Z",
     "form":{
         "name":{
             "type":"Text",

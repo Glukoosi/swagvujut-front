@@ -3,7 +3,7 @@ import { createApp, reactive } from "https://unpkg.com/petite-vue@0.2.2/dist/pet
 import axios from 'https://cdn.skypack.dev/axios';
 
 const registered = reactive({
-    loaded: false,
+    capacity: 64,
     names: [],
     getRegistered() {
         axios.get("https://api.ilmo.io/api/registrations/names/xwagtest")
@@ -20,6 +20,18 @@ const registered = reactive({
     }
 })
 
+const formTimer = reactive({
+    openTimestamp: new Date("2021-09-01T10:37:00.000Z"),
+    closeTimestamp: new Date("2022-09-30T20:59:00.000Z"),
+    timestamp: new Date(),
+    timer() {
+        setInterval(() => {
+            this.timestamp = new Date()
+        }, 1000);
+    }
+})
+
+formTimer.timer()
 registered.getRegistered()
 
 createApp({
@@ -43,5 +55,6 @@ createApp({
             }
         })
     },
-    registered
+    registered,
+    formTimer
 }).mount()

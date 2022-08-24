@@ -10,62 +10,72 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body v-cloak>
     <h1>Swagin vujut</h1>
-    <form @submit.prevent="send">
-        <label >Nimi:</label><br>
-        <input v-model="form.name" placeholder="Nimi" /><br>
+    <div v-if="formTimer.timestamp < formTimer.openTimestamp">
+        <p>Ilmo ei ole vielä auki</p>
+    </div>
+    <div v-else-if="formTimer.timestamp > formTimer.closeTimestamp">
+        <p>Ilmo on päättynyt</p>
+    </div>
+    <div v-else>
+        <form @submit.prevent="send">
+            <label >Nimi:</label><br>
+            <input v-model="form.name" placeholder="Nimi" required /><br>
 
-        <label >Sähköpostiosoite:</label><br>
-        <input type="email" v-model="form.email" placeholder="Sähköpostiosoite" /><br>
+            <label >Sähköpostiosoite:</label><br>
+            <input type="email" v-model="form.email" placeholder="Sähköpostiosoite" required /><br>
 
-        <label >Edustava taho/joukue:</label><br>
-        <input v-model="form.group" placeholder="Edustava taho/joukkue" /><br>
+            <label >Edustava taho/joukkue:</label><br>
+            <input v-model="form.group" placeholder="Edustava taho/joukkue" required /><br>
 
-        <label >Haluatko tuoda tervehdyksen:</label><br>
+            <label >Haluatko tuoda tervehdyksen:</label><br>
 
-        <input type="radio" id="Kyllä" value="Kyllä" v-model="form.greeting" />
-        <label for="Kyllä">Kyllä</label>
+            <input type="radio" id="Kyllä" value="Kyllä" v-model="form.greeting" required />
+            <label for="Kyllä">Kyllä</label>
 
-        <input type="radio" id="En" value="En" v-model="form.greeting" />
-        <label for="En">En</label><br>
+            <input type="radio" id="En" value="En" v-model="form.greeting" />
+            <label for="En">En</label><br>
 
-        <label >Erikoisruokavalio:</label><br>
-        <input v-model="form.food" placeholder="Erikoisruokavalio" /><br>
+            <label >Erikoisruokavalio:</label><br>
+            <input v-model="form.food" placeholder="Erikoisruokavalio" /><br>
 
-        <label >Juomapreferenssi:</label><br>
+            <label >Juomapreferenssi:</label><br>
 
-        <input type="radio" id="Alkoholillinen" value="Alkoholillinen" v-model="form.alcohol" />
-        <label for="Alkoholillinen">Alkoholillinen</label>
+            <input type="radio" id="Alkoholillinen" value="Alkoholillinen" v-model="form.alcohol" required />
+            <label for="Alkoholillinen">Alkoholillinen</label>
 
-        <input type="radio" id="Alkoholiton" value="Alkoholiton" v-model="form.alcohol" />
-        <label for="Alkoholiton">Alkoholiton</label><br>
+            <input type="radio" id="Alkoholiton" value="Alkoholiton" v-model="form.alcohol" />
+            <label for="Alkoholiton">Alkoholiton</label><br>
 
-        <input
-        type="checkbox"
-        id="bottle"
-        v-model="form.bottle" />
-        <label for="bottle" >Haluan pullon X</label><br>
+            <input
+            type="checkbox"
+            id="bottle"
+            v-model="form.bottle" />
+            <label for="bottle" >Haluan pullon X</label><br>
 
-        <label ></label>Avec / Pöytätoive (avec ilmoittautuu erikseen):</label><br>
-        <input v-model="form.tablewish" placeholder="Avec / Pöytätoive (avec ilmoittautuu erikseen)" /><br>
+            <label ></label>Avec / Pöytätoive (avec ilmoittautuu erikseen):</label><br>
+            <input v-model="form.tablewish" placeholder="Avec / Pöytätoive (avec ilmoittautuu erikseen)" /><br>
 
-        <label >Vapaa sana:</label><br>
-        <textarea v-model="form.free" placeholder="Vapaa sana"></textarea><br>
+            <label >Vapaa sana:</label><br>
+            <textarea v-model="form.free" placeholder="Vapaa sana"></textarea><br>
 
-        <input
-        type="checkbox"
-        id="publish"
-        v-model="form.checkbox" />
-        <label for="publish">Nimeni saa julkaista ilmoittautuneissa</label><br>
+            <input
+            type="checkbox"
+            id="publish"
+            v-model="form.checkbox" />
+            <label for="publish">Nimeni saa julkaista ilmoittautuneissa</label><br>
 
-        <button>Ilmoittaudu</button>
-    </form>
+            <button>Ilmoittaudu</button>
+        </form>
+    </div>
 
-    <p>Ilmoittautuneet:</p>
-    <div v-cloak >
+    <div v-cloak>
+        <p>
+            Ilmoittautuneet {{ registered.names.length }}/{{ registered.capacity }}:
+        </p>
         <ul>
-            <li v-for="item in registered.names">
+            <li v-for="(item, index) in registered.names">
                 {{ item.name }}
             </li>
         </ul>
