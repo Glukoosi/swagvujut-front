@@ -4,7 +4,7 @@
     "description":"halojata",
     "public":false,
     "capacity":64,
-    "capacityMax":100,
+    "capacityMax":64,
     "startDate":"2021-09-01T10:37:00.000Z",
     "endDate":"2022-09-30T20:59:00.000Z",
     "form":{
@@ -48,6 +48,10 @@
         "bottle":{
             "type":"CheckBox",
             "label":"Haluan pullon X"
+        },
+        "history":{
+            "type":"CheckBox",
+            "label":"Haluan historiikin"
         },
         "tablewish":{
             "type":"Text",

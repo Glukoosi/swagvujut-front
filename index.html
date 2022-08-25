@@ -18,6 +18,9 @@
     <div v-else-if="formTimer.timestamp > formTimer.closeTimestamp">
         <p>Ilmo on päättynyt</p>
     </div>
+    <div v-else-if="registered.entries == null || registered.entries.length >= registered.capacity">
+        <p>Ilmo on täynnä</p>
+    </div>
     <div v-else>
         <form @submit.prevent="send">
             <label >Nimi:</label><br>
@@ -31,10 +34,10 @@
 
             <label >Haluatko tuoda tervehdyksen:</label><br>
 
-            <input type="radio" id="Kyllä" value="Kyllä" v-model="form.greeting" required />
+            <input type="radio" name="greeting" id="Kyllä" value="Kyllä" v-model="form.greeting" required />
             <label for="Kyllä">Kyllä</label>
 
-            <input type="radio" id="En" value="En" v-model="form.greeting" />
+            <input type="radio" name="greeting" id="En" value="En" v-model="form.greeting" />
             <label for="En">En</label><br>
 
             <label >Erikoisruokavalio:</label><br>
@@ -42,17 +45,23 @@
 
             <label >Juomapreferenssi:</label><br>
 
-            <input type="radio" id="Alkoholillinen" value="Alkoholillinen" v-model="form.alcohol" required />
+            <input type="radio" name="alcohol" id="Alkoholillinen" value="Alkoholillinen" v-model="form.alcohol" required />
             <label for="Alkoholillinen">Alkoholillinen</label>
 
-            <input type="radio" id="Alkoholiton" value="Alkoholiton" v-model="form.alcohol" />
+            <input type="radio" name="alcohol" id="Alkoholiton" value="Alkoholiton" v-model="form.alcohol" />
             <label for="Alkoholiton">Alkoholiton</label><br>
 
             <input
             type="checkbox"
             id="bottle"
             v-model="form.bottle" />
-            <label for="bottle" >Haluan pullon X</label><br>
+            <label for="bottle" >Haluan pullon (slotti täydennä)</label><br>
+
+            <input
+            type="checkbox"
+            id="history"
+            v-model="form.history" />
+            <label for="history" >Haluan historiikin (slotti täydennä)</label><br>
 
             <label ></label>Avec / Pöytätoive (avec ilmoittautuu erikseen):</label><br>
             <input v-model="form.tablewish" placeholder="Avec / Pöytätoive (avec ilmoittautuu erikseen)" /><br>
@@ -72,11 +81,11 @@
 
     <div v-cloak>
         <p>
-            Ilmoittautuneet {{ registered.names.length }}/{{ registered.capacity }}:
+            Ilmoittautuneet {{ registered.entries.length }}/{{ registered.capacity }}:
         </p>
         <ul>
-            <li v-for="(item, index) in registered.names">
-                {{ item.name }}
+            <li v-for="(item, index) in registered.entries">
+                {{ item.name }} - {{ item.group }}
             </li>
         </ul>
     </div>
