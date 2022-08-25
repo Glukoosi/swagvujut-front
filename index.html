@@ -18,9 +18,6 @@
     <div v-else-if="formTimer.timestamp > formTimer.closeTimestamp">
         <p>Ilmo on päättynyt</p>
     </div>
-    <div v-else-if="registered.entries.length >= registered.capacity">
-        <p>Ilmo on täynnä</p>
-    </div>
     <div v-else>
         <form @submit.prevent="send">
             <label >Nimi:</label><br>
@@ -75,7 +72,12 @@
             v-model="form.checkbox" />
             <label for="publish">Nimeni saa julkaista ilmoittautuneissa</label><br>
 
-            <button>Ilmoittaudu</button>
+            <div v-if="registered.entries.length >= registered.capacity">
+                <button disabled>Ilmoittaudu</button> Ilmo on täynnä
+            </div>
+            <div v-else>
+                <button>Ilmoittaudu</button>
+            </div>
         </form>
     </div>
 
