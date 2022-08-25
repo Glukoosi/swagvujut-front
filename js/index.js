@@ -2,7 +2,7 @@ import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
 import { createApp, reactive } from "https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js"
 import axios from 'https://cdn.skypack.dev/axios';
 
-const capacity = 5;
+const capacity = 64;
 const slug = "xwagtest";
 
 const openTimestamp = new Date("2021-09-01T10:37:00.000Z");
