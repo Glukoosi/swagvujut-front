@@ -18,7 +18,7 @@
     <div v-else-if="formTimer.timestamp > formTimer.closeTimestamp">
         <p>Ilmo on päättynyt</p>
     </div>
-    <div v-else-if="registered.entries == null || registered.entries.length >= registered.capacity">
+    <div v-else-if="registered.entries.length >= registered.capacity">
         <p>Ilmo on täynnä</p>
     </div>
     <div v-else>

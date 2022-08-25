@@ -10,18 +10,17 @@ const closeTimestamp = new Date("2022-09-30T20:59:00.000Z");
 
 const registered = reactive({
     capacity: capacity,
-    entries: null,
+    entries: [],
     getRegistered() {
         axios.get(`https://api.ilmo.io/api/registrations/names/${slug}`)
-            .then(data => {
-                this.entries = data.data.reverse();
-
+            .then(result => {
+                this.entries = result.data.reverse();
             })
 
         const socket = io("https://api.ilmo.io");
 
         socket.on(slug, (msg) => {
-            this.entries.push(msg)
+            this.entries.push(msg);
         });
     }
 })
