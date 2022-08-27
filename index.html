@@ -5,94 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Swagin vujut</title>
+    <title>#Xwag</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
 <body v-cloak>
-    <h1>Swagin vujut</h1>
-    <div v-if="formTimer.timestamp < formTimer.openTimestamp">
-        <p>Ilmo ei ole vielä auki</p>
-    </div>
-    <div v-else-if="formTimer.timestamp > formTimer.closeTimestamp">
-        <p>Ilmo on päättynyt</p>
-    </div>
-    <div v-else>
-        <form @submit.prevent="send">
-            <label >Nimi:</label><br>
-            <input v-model="form.name" placeholder="Nimi" required /><br>
-
-            <label >Sähköpostiosoite:</label><br>
-            <input type="email" v-model="form.email" placeholder="Sähköpostiosoite" required /><br>
-
-            <label >Edustava taho/joukkue:</label><br>
-            <input v-model="form.group" placeholder="Edustava taho/joukkue" required /><br>
-
-            <label >Haluatko tuoda tervehdyksen:</label><br>
-
-            <input type="radio" name="greeting" id="Kyllä" value="Kyllä" v-model="form.greeting" required />
-            <label for="Kyllä">Kyllä</label>
-
-            <input type="radio" name="greeting" id="En" value="En" v-model="form.greeting" />
-            <label for="En">En</label><br>
-
-            <label >Erikoisruokavalio:</label><br>
-            <input v-model="form.food" placeholder="Erikoisruokavalio" /><br>
-
-            <label >Juomapreferenssi:</label><br>
-
-            <input type="radio" name="alcohol" id="Alkoholillinen" value="Alkoholillinen" v-model="form.alcohol" required />
-            <label for="Alkoholillinen">Alkoholillinen</label>
-
-            <input type="radio" name="alcohol" id="Alkoholiton" value="Alkoholiton" v-model="form.alcohol" />
-            <label for="Alkoholiton">Alkoholiton</label><br>
-
-            <input
-            type="checkbox"
-            id="bottle"
-            v-model="form.bottle" />
-            <label for="bottle" >Haluan pullon (slotti täydennä)</label><br>
-
-            <input
-            type="checkbox"
-            id="history"
-            v-model="form.history" />
-            <label for="history" >Haluan historiikin (slotti täydennä)</label><br>
-
-            <label ></label>Avec / Pöytätoive (avec ilmoittautuu erikseen):</label><br>
-            <input v-model="form.tablewish" placeholder="Avec / Pöytätoive (avec ilmoittautuu erikseen)" /><br>
-
-            <label >Vapaa sana:</label><br>
-            <textarea v-model="form.free" placeholder="Vapaa sana"></textarea><br>
-
-            <input
-            type="checkbox"
-            id="publish"
-            v-model="form.checkbox" />
-            <label for="publish">Nimeni saa julkaista ilmoittautuneissa</label><br>
-
-            <div v-if="registered.entries.length >= registered.capacity">
-                <button disabled>Ilmoittaudu</button> Ilmo on täynnä
-            </div>
-            <div v-else>
-                <button>Ilmoittaudu</button>
-            </div>
-        </form>
-    </div>
-
-    <div v-cloak>
+<div id="numberlayer">
+<div id="wrap">
+    <div id="container">
+        <img src="static/logo.png" class="logo">
+        <h1>Akateemista Kyykkää vuodesta 2012</h1>
         <p>
-            Ilmoittautuneet {{ registered.entries.length }}/{{ registered.capacity }}:
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis semper fermentum. Sed lorem mi,
+            placerat in placerat sit amet, malesuada vel dolor. Integer id libero mi. Praesent tempor felis orci, sed
+            tempus nibh feugiat eget. Aenean vestibulum diam id ullamcorper luctus. Vivamus ac blandit sem, ac aliquet
+            leo. Cras molestie massa eget velit efficitur, sed pulvinar turpis aliquet. Mauris quis nibh ultrices eros
+            fringilla vulputate. Ut sed ipsum ut orci blandit tincidunt. Phasellus consequat, libero vitae laoreet
+            fringilla, massa ligula ultricies lorem, non auctor turpis nunc pulvinar diam. Vestibulum efficitur mauris
+            diam, eu faucibus orci consectetur quis. Praesent pellentesque tortor dolor, id vehicula nisi interdum
+            vitae.
         </p>
-        <ul>
-            <li v-for="(item, index) in registered.entries">
-                {{ item.name }} - {{ item.group }}
-            </li>
-        </ul>
-    </div>
+        <p>
+            Morbi luctus eu nisi nec sollicitudin. Quisque id mi ac urna fermentum blandit vitae eget tellus. Cras
+            ullamcorper, arcu et egestas vulputate, velit purus molestie dui, vel iaculis ligula urna in nunc. Phasellus
+            imperdiet sapien nulla, in lacinia sem consequat in. In tempus malesuada velit, eu laoreet orci imperdiet
+            in. Integer et molestie massa. Maecenas nec enim nisi. Fusce pretium felis sed mi mollis dapibus.
+        </p>
 
-    <script type="module" src="./js/index.js"></script>
+        <div v-if="formTimer.timestamp < formTimer.openTimestamp">
+            <p>Ilmo ei ole vielä auki</p>
+        </div>
+        <div v-else-if="formTimer.timestamp > formTimer.closeTimestamp">
+            <p>Ilmo on päättynyt</p>
+        </div>
+        <div v-else>
+            <form @submit.prevent="send">
+                <label>Nimi:</label><br>
+                <input v-model="form.name" placeholder="Nimi" required/><br>
+                <div class="divider"></div>
+                <label>Sähköpostiosoite:</label><br>
+                <input type="email" v-model="form.email" placeholder="Sähköpostiosoite" required/><br>
+                <div class="divider"></div>
+
+                <label>Edustava taho/joukkue:</label><br>
+                <input v-model="form.group" placeholder="Edustava taho/joukkue" required/><br>
+                <div class="divider"></div>
+
+                <label>Haluatko tuoda tervehdyksen:</label><br>
+
+                <input type="radio" name="greeting" id="Kyllä" value="Kyllä" v-model="form.greeting" required/>
+                <label for="Kyllä">Kyllä</label>
+
+                <input type="radio" name="greeting" id="En" value="En" v-model="form.greeting"/>
+                <label for="En">En</label><br>
+                <div class="divider"></div>
+
+                <label>Erikoisruokavalio:</label><br>
+                <input v-model="form.food" placeholder="Erikoisruokavalio"/><br>
+                <div class="divider"></div>
+
+                <label>Juomapreferenssi:</label><br>
+
+                <input type="radio" name="alcohol" id="Alkoholillinen" value="Alkoholillinen" v-model="form.alcohol"
+                       required/>
+                <label for="Alkoholillinen">Alkoholillinen</label>
+
+                <input type="radio" name="alcohol" id="Alkoholiton" value="Alkoholiton" v-model="form.alcohol"/>
+                <label for="Alkoholiton">Alkoholiton</label><br>
+                <div class="divider"></div>
+                <label>Illalliskortin lisäksi:</label><br>
+                <input
+                        type="checkbox"
+                        id="bottle"
+                        v-model="form.bottle"/>
+                <label for="bottle">Pöytäpullo 10.48 €</label><br>
+
+                <input
+                        type="checkbox"
+                        id="history"
+                        v-model="form.history"/>
+                <label for="history">Historiikki 10.49 €</label><br>
+                <div class="divider"></div>
+
+                <label></label>Avec / Pöytätoive (avec ilmoittautuu erikseen):</label><br>
+                <input v-model="form.tablewish" placeholder="Avec / Pöytätoive (avec ilmoittautuu erikseen)"/><br>
+                <div class="divider"></div>
+
+                <label>Vapaa sana:</label><br>
+                <textarea v-model="form.free" placeholder="Vapaa sana"></textarea><br>
+                <div class="divider"></div>
+
+                <input
+                        type="checkbox"
+                        id="publish"
+                        v-model="form.checkbox"/>
+                <label for="publish">Nimeni saa julkaista ilmoittautuneissa</label><br>
+                <div class="divider"></div>
+
+                <div v-if="registered.entries.length >= registered.capacity">
+                    <button disabled>Ilmoittaudu</button>
+                    Ilmo on täynnä
+                </div>
+                <div v-else>
+                    <button>Ilmoittaudu</button>
+                </div>
+            </form>
+        </div>
+
+        <div v-cloak>
+            <p>
+                Ilmoittautuneet {{ registered.entries.length }}/{{ registered.capacity }}:
+            </p>
+            <ul>
+                <li v-for="(item, index) in registered.entries">
+                    {{ item.name }} - {{ item.group }}
+                </li>
+            </ul>
+        </div>
+
+        <script type="module" src="./js/index.js"></script>
+    </div>
+</div>
+</div>
 </body>
 
 </html>

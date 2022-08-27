@@ -64,3 +64,7 @@ createApp({
     registered,
     formTimer
 }).mount()
+
+
+
+document.getElementById("numberlayer").style.backgroundPosition = (Math.floor(Math.random() * 3000)) + "px " +  (Math.floor(Math.random() * 3000)) + "px";
