@@ -3,9 +3,9 @@ import { createApp, reactive } from "https://unpkg.com/petite-vue@0.2.2/dist/pet
 import axios from 'https://cdn.skypack.dev/axios';
 
 const capacity = 64;
-const slug = "xwagtest";
+const slug = "xwag";
 
-const openTimestamp = new Date("2021-09-01T10:37:00.000Z");
+const openTimestamp = new Date("2022-09-01T10:37:00.000Z");
 const closeTimestamp = new Date("2022-09-30T20:59:00.000Z");
 
 const registered = reactive({
@@ -53,13 +53,19 @@ createApp({
         free: "",
         checkbox: "",
     },
+    errorMessages: [],
     send() {
         axios.post(`https://api.ilmo.io/api/registration/${slug}`, this.form)
-        .then(() => {
-            for (const item in this.form) {
-                this.form[item] = '';
-            }
-        })
+            .then(() => {
+                this.errorMessages = []
+                for (const item in this.form) {
+                    this.form[item] = '';
+                }
+            })
+            .catch(error => {
+                const response = JSON.parse(error.request.response)
+                this.errorMessages.push(response.error);
+            });
     },
     registered,
     formTimer

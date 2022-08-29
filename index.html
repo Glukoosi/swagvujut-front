@@ -29,10 +29,10 @@ Illalliskorttin hinta on 20€ per henkilö.
 
 
         <div v-if="formTimer.timestamp < formTimer.openTimestamp">
-            <p>Ilmo ei ole vielä auki</p>
+            <b>Ilmoittautuminen aukeaa 1.9.2022 klo 13:37</b>
         </div>
         <div v-else-if="formTimer.timestamp > formTimer.closeTimestamp">
-            <p>Ilmo on päättynyt</p>
+            <b>Ilmoittautuminen on päättynyt</b>
         </div>
         <div v-else>
             <form @submit.prevent="send">
@@ -106,6 +106,9 @@ Illalliskorttin hinta on 20€ per henkilö.
                 <div v-else>
                     <button>Ilmoittaudu</button>
                 </div>
+                <p v-for="error in errorMessages" style="color:red">
+                    {{ error }}
+                </p>
             </form>
         </div>
 
