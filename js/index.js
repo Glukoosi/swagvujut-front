@@ -5,7 +5,7 @@ import axios from 'https://cdn.skypack.dev/axios';
 const capacity = 64;
 const slug = "xwag";
 
-const openTimestamp = new Date("2022-09-01T10:37:00.000Z");
+const openTimestamp = new Date("2021-09-01T10:37:00.000Z");
 const closeTimestamp = new Date("2022-09-30T20:59:00.000Z");
 
 const registered = reactive({
