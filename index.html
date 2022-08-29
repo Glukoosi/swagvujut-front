@@ -17,21 +17,16 @@
         <img src="static/logo.png" class="logo">
         <h1>Akateemista Kyykkää vuodesta 2012</h1>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis semper fermentum. Sed lorem mi,
-            placerat in placerat sit amet, malesuada vel dolor. Integer id libero mi. Praesent tempor felis orci, sed
-            tempus nibh feugiat eget. Aenean vestibulum diam id ullamcorper luctus. Vivamus ac blandit sem, ac aliquet
-            leo. Cras molestie massa eget velit efficitur, sed pulvinar turpis aliquet. Mauris quis nibh ultrices eros
-            fringilla vulputate. Ut sed ipsum ut orci blandit tincidunt. Phasellus consequat, libero vitae laoreet
-            fringilla, massa ligula ultricies lorem, non auctor turpis nunc pulvinar diam. Vestibulum efficitur mauris
-            diam, eu faucibus orci consectetur quis. Praesent pellentesque tortor dolor, id vehicula nisi interdum
-            vitae.
+            Tervetuloa juhlistamaan kanssamme #swagin menestyksekästä kymmenvuotista kyykkätaivalta vuosijuhlien merkeissä Teekkaritalolle lauantaina 5.11.2022. Juhla alkaa cocktailtilaisuudella klo 17:00 ja pääjuhla aloitetaan klo 18:00. Ilmoitattehan edustamanne tahon sekä halukkuutenne tuoda tervehdyksen. Illan mittaan myös sauna ja palju lämpenee.
         </p>
         <p>
-            Morbi luctus eu nisi nec sollicitudin. Quisque id mi ac urna fermentum blandit vitae eget tellus. Cras
-            ullamcorper, arcu et egestas vulputate, velit purus molestie dui, vel iaculis ligula urna in nunc. Phasellus
-            imperdiet sapien nulla, in lacinia sem consequat in. In tempus malesuada velit, eu laoreet orci imperdiet
-            in. Integer et molestie massa. Maecenas nec enim nisi. Fusce pretium felis sed mi mollis dapibus.
+Illalliskorttin hinta on 20€ per henkilö.
         </p>
+        <p>
+            Tapahtuman teema voi olla joillekin epämukava, joten huomioithan sen ilmoittautuessasi. Muistutamme kuitenkin että tapahtuma järjestetään #swagin <a href="/saannot">sääntöjen</a> ja arvojen mukaisesti ja pyrimme siihen että kaikilla osallistujilla on hauskaa eikä kenenkään tarvitsisi tuntea oloaan epämukavaksi. :D
+
+        </p>
+
 
         <div v-if="formTimer.timestamp < formTimer.openTimestamp">
             <p>Ilmo ei ole vielä auki</p>
@@ -102,7 +97,8 @@
                         v-model="form.checkbox"/>
                 <label for="publish">Nimeni saa julkaista ilmoittautuneissa</label><br>
                 <div class="divider"></div>
-
+                Ilmoittautumalla hyväksyt <a target="_blank" href="https://drive.google.com/file/d/1n9PIbevTSpisBvT61OF4up4so3iQIeDi/view?usp=sharing">tietosuojaselosteen</a>.
+                <div class="divider"></div>
                 <div v-if="registered.entries.length >= registered.capacity">
                     <button disabled>Ilmoittaudu</button>
                     Ilmo on täynnä
